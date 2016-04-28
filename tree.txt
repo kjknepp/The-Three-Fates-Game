@@ -1,0 +1,45 @@
+Root
+Is your character a boy?
+1
+y
+Is you character's father alive?
+1
+yy
+Is your character a demi-god
+1
+yyy
+Hercules
+0
+yyn
+Pinochio
+0
+yn
+Is your character responsible for his father's death?
+1
+yny
+Kylo Ren
+0
+ynn
+Li Shang
+0
+n
+Does she wear a blue dress?
+1
+ny
+Does she have magical Ice Powers?
+1
+nyy
+Elsa
+0
+nyn
+Cinderella
+0
+nn
+Does she have a horse?
+1
+nny
+Mulan
+0
+nnn
+Ariel
+0
