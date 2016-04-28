@@ -21,6 +21,8 @@
 	
 //---------------------------------------------------------------------//
 
+TO RUN GAME AS IS:
+	Double Click on "The Three Fates Game.py"
 
 Contents of Directory:
 

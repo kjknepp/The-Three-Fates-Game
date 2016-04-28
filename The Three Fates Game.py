@@ -1,8 +1,8 @@
 import wx
 import traversal as otherStuff
 
-APP_SIZE_X = 600
-APP_SIZE_Y = 900
+APP_SIZE_X = 400
+APP_SIZE_Y = 600
 BUTTON_SIZE_X = APP_SIZE_X*160/400
 BUTTON_SIZE_Y = APP_SIZE_Y/10
 RADIO_SIZE_X = APP_SIZE_X/4
@@ -66,6 +66,10 @@ class theGame(wx.Dialog):
         lostImage = wx.Image("userLost1.bmp",wx.BITMAP_TYPE_BMP).ConvertToBitmap()
         self.lostDisplay = wx.StaticBitmap(self.Canvas, id, lostImage, (0, APP_SIZE_Y/6), (lostImage.GetWidth(), lostImage.GetHeight()))
         self.lostDisplay.Hide()
+
+        wonImage = wx.Image("userWon1.bmp",wx.BITMAP_TYPE_BMP).ConvertToBitmap()
+        self.wonDisplay = wx.StaticBitmap(self.Canvas, id, wonImage, (0, APP_SIZE_Y/3), (lostImage.GetWidth(), lostImage.GetHeight()))
+        self.wonDisplay.Hide()
         #Display Welcome Image'
         welcomeImage = wx.Image("welcomeImage1.bmp",wx.BITMAP_TYPE_BMP).ConvertToBitmap()
         self.welcomeDisplay = wx.StaticBitmap(self.Canvas, id, welcomeImage, (0, APP_SIZE_Y*7/30), (welcomeImage.GetWidth(), welcomeImage.GetHeight()))
@@ -209,6 +213,8 @@ class theGame(wx.Dialog):
         self.probablyButton.Hide()
         self.probablyNotButton.Hide()
 
+        self.wonDisplay.Show()
+
         self.submitButton = goldButton(self.Canvas,label="Submit",pos=((APP_SIZE_X/2)-(BUTTON_SIZE_X/2),APP_SIZE_Y-3*BUTTON_SIZE_Y/2),size=(BUTTON_SIZE_X,BUTTON_SIZE_Y),style=wx.BORDER_NONE)
         self.submitButton.myDisable()
         self.newCharacter = wx.TextCtrl(self.Canvas,pos=(APP_SIZE_X/20,APP_SIZE_Y*140/600),size=(APP_SIZE_X-APP_SIZE_X/10,APP_SIZE_Y/30))
@@ -316,6 +322,7 @@ class theGame(wx.Dialog):
         wx.FutureCall(1, self.drawBackground)
         self.theHiddenStuff.addCharacter(character)
 #        self.theHiddenStuff.doubleCheck()
+        self.wonDisplay.Hide()
         self.restartGame(3)
         
     def submitData(self,event):
