@@ -1,8 +1,8 @@
 import wx
 import traversal as otherStuff
 
-APP_SIZE_X = 400
-APP_SIZE_Y = 600
+APP_SIZE_X = 600
+APP_SIZE_Y = 900
 BUTTON_SIZE_X = APP_SIZE_X*160/400
 BUTTON_SIZE_Y = APP_SIZE_Y/10
 RADIO_SIZE_X = APP_SIZE_X/4
@@ -59,16 +59,16 @@ class theGame(wx.Dialog):
 
         wx.FutureCall(1,self.drawBackground)
 
-        self.welcome = myText(self.Canvas,id,label="Welcome!",pos=(APP_SIZE_X/3,100),size=(APP_SIZE_X/3,20),style=wx.ALIGN_CENTRE_HORIZONTAL)
+        self.welcome = myText(self.Canvas,id,label="Welcome!",pos=(APP_SIZE_X/3,100),size=(APP_SIZE_X/3,APP_SIZE_Y/30),style=wx.ALIGN_CENTRE_HORIZONTAL)
 
         #WELCOME SCREEN
         #various images
         lostImage = wx.Image("userLost1.bmp",wx.BITMAP_TYPE_BMP).ConvertToBitmap()
-        self.lostDisplay = wx.StaticBitmap(self.Canvas, id, lostImage, (0, 100), (lostImage.GetWidth(), lostImage.GetHeight()))
+        self.lostDisplay = wx.StaticBitmap(self.Canvas, id, lostImage, (0, APP_SIZE_Y/6), (lostImage.GetWidth(), lostImage.GetHeight()))
         self.lostDisplay.Hide()
         #Display Welcome Image'
         welcomeImage = wx.Image("welcomeImage1.bmp",wx.BITMAP_TYPE_BMP).ConvertToBitmap()
-        self.welcomeDisplay = wx.StaticBitmap(self.Canvas, id, welcomeImage, (0, 140), (welcomeImage.GetWidth(), welcomeImage.GetHeight()))
+        self.welcomeDisplay = wx.StaticBitmap(self.Canvas, id, welcomeImage, (0, APP_SIZE_Y*7/30), (welcomeImage.GetWidth(), welcomeImage.GetHeight()))
         #Define Buttons
         self.exitButton = goldButton(self.Canvas,label="Exit",pos=((APP_SIZE_X/2)-(BUTTON_SIZE_X/2),APP_SIZE_Y-(BUTTON_SIZE_Y*6/3)),size=(BUTTON_SIZE_X,BUTTON_SIZE_Y),style=wx.BORDER_NONE)
         self.continueButton = goldButton(self.Canvas,label="Continue",pos=((APP_SIZE_X/2)-(BUTTON_SIZE_X/2),APP_SIZE_Y-(BUTTON_SIZE_Y*10/3)),size=(BUTTON_SIZE_X,BUTTON_SIZE_Y),style=wx.BORDER_NONE)
@@ -129,7 +129,7 @@ class theGame(wx.Dialog):
         self.continueButton.Hide()
         self.welcome.Hide()
         self.exitButton.Hide()
-        self.questionText = myText(self.Canvas,label=self.question,pos=(0,100),size=(APP_SIZE_X,20),style=wx.ALIGN_CENTRE_HORIZONTAL,name="questionText")
+        self.questionText = myText(self.Canvas,label=self.question,pos=(0,APP_SIZE_Y/6),size=(APP_SIZE_X,APP_SIZE_Y/30),style=wx.ALIGN_CENTRE_HORIZONTAL,name="questionText")
         #GAME SCREEN
         #Define Buttons
         self.noButton = goldButton(self.Canvas,label="No",pos=((APP_SIZE_X/2)-(BUTTON_SIZE_X*11/10),APP_SIZE_Y-(BUTTON_SIZE_Y*10/3)),size=(BUTTON_SIZE_X,BUTTON_SIZE_Y),style=wx.BORDER_NONE)
@@ -170,7 +170,7 @@ class theGame(wx.Dialog):
         self.questionText.Show()
         
     def wrongCharacter(self,event):
-        self.continueText = myText(self.Canvas,label="Continue?",pos=(0,100),size=(APP_SIZE_X,20),style=wx.ALIGN_CENTRE_HORIZONTAL,name="continueText")
+        self.continueText = myText(self.Canvas,label="Continue?",pos=(0,APP_SIZE_Y/6),size=(APP_SIZE_X,APP_SIZE_Y/30),style=wx.ALIGN_CENTRE_HORIZONTAL,name="continueText")
         self.continueText.Show()
         self.questionText.Hide()
         self.Bind(wx.EVT_BUTTON,self.closewindow, self.noButton)
